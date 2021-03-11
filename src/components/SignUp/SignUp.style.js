@@ -3,53 +3,62 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     justifyContent: 'center',
-    margin: 32,
+    margin: 40,
   },
   title: {
-      fontSize: 22,
-      fontWeight: '700',
+      fontSize: 25,
+      fontWeight: '500',
       lineHeight: 25.3,
-      color: '#333333'
+      color: '#000000',
+      marginBottom: 15
   },
   description: {
-    marginTop: 30,
-    marginBottom: 11,
-    fontSize: 14,
-    color: '#333333',
-    fontWeight: '400'
+      color: '#797979',
+      marginBottom: 52,
+      marginRight: 30
   },
   formContainer: {
-      marginTop: 15
+      marginTop: 20
   },
   formLabel: {
-    fontWeight: '400',
+    fontWeight: '500',
     fontSize: 14,
-    color: '#333333',
-    lineHeight: 16.1
+    color: '#797979',
+    lineHeight: 16.1,
+    marginBottom:10
   },
   footerTextContainer: {
-      marginTop: 10
+      marginTop: 10,
+      marginBottom: 20
   },
   footerText: {
-      textAlign: 'right',
-      color: '#33CCFF',
-      fontSize: 16,
-      fontWeight: '700',
-      lineHeight: 18.4
+      color: '#797979',
+      fontSize: 13,
+      fontWeight: '500',
+      lineHeight: 19.5
+  },
+  footerBottomText: {
+      color: '#797979',
+      fontSize: 13,
+      fontWeight: '500',
+      textAlign: 'center',
+      lineHeight: 19.5,
+      marginBottom: 20
   },
   textForm: {
       height: 53,
-      backgroundColor: '#F3F5F8',
+      backgroundColor: '#F2F2F2',
       marginTop: 9,
       borderRadius: 8,
       paddingLeft: 25
   },
   actionButton: {
-    marginTop: 30,
-    height: 53,
-    borderRadius: 8,
-    backgroundColor: '#33CCFF',
-    justifyContent: 'center'
+      marginTop: 36,
+      marginBottom: 35,
+      height: 53,
+      borderRadius: 8,
+      backgroundColor: '#F27621',
+      justifyContent: 'center'
   },
   actionText: {
     color: '#fff',
@@ -57,5 +66,8 @@ export default StyleSheet.create({
     fontSize: 16,
     lineHeight: 18.4,
     textAlign: 'center'
+  },
+  footerTextColor: {
+    color: '#F27621'
   }
 })

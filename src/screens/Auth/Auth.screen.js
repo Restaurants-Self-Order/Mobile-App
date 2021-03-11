@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react'
-import { Image, ScrollView, Text, View, TouchableWithoutFeedback } from 'react-native'
+import { Image, ScrollView, Text, View, TouchableWithoutFeedback, Pressable, Modal, StyleSheet, Dimensions } from 'react-native'
 import SignIn from '../../components/SignIn/SignIn.screen'
 import SignUp from '../../components/SignUp/SignUp.screen'
 import Recovery from '../../components/Recovery/Recovery.screen'
+import { SvgXml } from 'react-native-svg';
+import Close from '../../assets/images/closeButton.svg';
 import styles from './Auth.style'
 
 const Auth = ({}) => {
@@ -14,17 +16,14 @@ const Auth = ({}) => {
     const switchSelectedScreen = (screen) => {
         switch (screen) {
             case 'signin':
-                _dishScrollRef.current.scrollTo({x: 0, y: 0, animated: true})
                 setSeclectedScreen(screen);
                 break;
                 
             case 'signup':
-                _dishScrollRef.current.scrollToEnd()
                 setSeclectedScreen(screen);
                 break;
                 
             case 'recovery':
-                // _dishScrollRef.current.scrollToEnd()
                 setSeclectedScreen(screen);
                 break;
         
@@ -35,7 +34,36 @@ const Auth = ({}) => {
 
     return(
         <>
-            <View style={styles.container}>
+            <View style={styles.centeredView}>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                    setModalVisible(!modalVisible);
+                    }}
+                >
+                    <View style={styles.centeredView}>
+                        <View style={styles.modalView}>
+                            <View style={{marginLeft:47.89}}>
+                                <SvgXml width="19.23" height="19.23" xml={Close} fill='#797979' style={styles.ellipse}/>
+                            </View>
+                            {
+                                selectedScreen == 'signin'
+                                ?
+                                    <SignIn action={switchSelectedScreen}/>
+                                :
+                                    selectedScreen == 'signup'
+                                    ?
+                                        <SignUp action={switchSelectedScreen}/>
+                                    :
+                                        <Recovery action={switchSelectedScreen}/>
+                            }
+                        </View>
+                    </View>
+                </Modal>
+            </View>
+            {/* <View style={styles.container}>
                 <View style={styles.menuSliderContainer}>
                     <ScrollView ref={_dishScrollRef} contentContainerStyle={styles.dishScroll} horizontal={true} showsHorizontalScrollIndicator={false}>
                         <View style={styles.imageContainer}>
@@ -73,7 +101,7 @@ const Auth = ({}) => {
                                 <Recovery/>
                     }
                 </>
-            </View>
+            </View> */}
         </>
     )
 }

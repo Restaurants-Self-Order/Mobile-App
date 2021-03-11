@@ -3,28 +3,30 @@ import { Pressable, Text, TextInput, View } from 'react-native'
 import ModalSelectInput from '../ModalSelectInput/ModalSelectInput.screen'
 import styles from './SignUp.style'
 
-const SignUp = ({}) => {
+const SignUp = ({action}) => {
     return(
         <>
             <View style={styles.container}>
-                <Text style={styles.title}>Welcome!</Text>
-                <Text style={styles.description}>You are signing up with your account in</Text>
-                <ModalSelectInput title='Select Country'/>
+                <Text style={styles.title}>Create an account</Text>
+                <Text style={styles.description}>Welcome back, sign in to order</Text>
                 <View style={styles.formContainer}>
                     <Text style={styles.formLabel}>Email</Text>
-                    <TextInput style={styles.textForm} placeholder='Your email address' placeholderTextColor='#33333370'/>
+                    <TextInput style={styles.textForm} placeholder='example@domain.com' placeholderTextColor='#C4C4C4'/>
                 </View>
                 <View style={styles.formContainer}>
                     <Text style={styles.formLabel}>Password</Text>
-                    <TextInput style={styles.textForm} placeholder='Your password' placeholderTextColor='#33333370'/>
+                    <TextInput style={styles.textForm} placeholder='Your password' placeholderTextColor='#C4C4C4'/>
                 </View>
                 <View style={styles.formContainer}>
-                    <Text style={styles.formLabel}>Confirm Password</Text>
-                    <TextInput style={styles.textForm} placeholder='Confirm your password' placeholderTextColor='#33333370'/>
+                    <Text style={styles.formLabel}>Password</Text>
+                    <TextInput style={styles.textForm} placeholder='Your password' placeholderTextColor='#C4C4C4'/>
                 </View>
                 <Pressable style={styles.actionButton}>
-                    <Text style={styles.actionText}>Sign-up</Text>
+                    <Text style={styles.actionText}>CREATE ACCOUNT</Text>
                 </Pressable>
+                <View style={styles.footerTextContainer}>
+                    <Text style={styles.footerBottomText}>Already have an Account? <Text style={styles.footerTextColor} onPress={()=>action('signin')}>Login now</Text></Text>
+                </View>
             </View>
         </>
     )
